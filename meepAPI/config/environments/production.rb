@@ -78,5 +78,5 @@ Rails.application.configure do
   config.active_record.dump_schema_after_migration = false
 
   #setup default URL options for Devise mailer
-  config.action_mailer.default_url_options = { host: 'localhost'm port: 3000}
+  config.action_mailer.default_url_options = { host: 'localhost', port: 3000}
 end

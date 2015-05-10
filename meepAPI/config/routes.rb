@@ -1,10 +1,21 @@
 Rails.application.routes.draw do
-  devise_for :users
+  devise_for :users, controllers: {
+    sessions: "users/sessions"
+  }
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
   # You can have the root of your site routed with "root"
   root 'static#home'
+
+  #after signing a user in, devise will look for scoped root path to redirect to.
+  #user_root_path will be used if it exists. otherwise root_path will be used.
+  #can also override after_sign_in_path_for to customize redirect hooks....
+  #root to: "static#loggedin"
+
+  namespace :api, :path => "", :constraints => {:subdomain => "api"}, :defaults => {:format => :json} do
+    resources :users
+  end
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'

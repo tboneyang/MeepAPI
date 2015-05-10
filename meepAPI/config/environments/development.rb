@@ -38,7 +38,7 @@ Rails.application.configure do
 
 
   #setup default URL options for Devise mailer
-  config.action_mailer.default_url_options = { host: 'localhost'm port: 3000}
+  config.action_mailer.default_url_options = { host: 'localhost', port: 3000}
 
   # Raises error for missing translations
   # config.action_view.raise_on_missing_translations = true
